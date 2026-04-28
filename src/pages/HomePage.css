@@ -1,0 +1,184 @@
+.home-page {
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  background: #fff6fa;
+  color: #3d2c2c;
+}
+
+.hero-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff0f6;
+  padding: 48px 5% 32px 5%;
+  border-radius: 0 0 48px 48px;
+  box-shadow: 0 4px 24px #f8e1e9;
+}
+
+.hero-content {
+  max-width: 520px;
+}
+
+.subtitle {
+  color: #e07a9b;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.main-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #d14d72;
+  margin-bottom: 18px;
+}
+
+.description {
+  font-size: 1.1rem;
+  margin-bottom: 28px;
+  color: #6d4c4c;
+}
+
+.cta-btn {
+  background: linear-gradient(90deg, #ffb6c1 0%, #e07a9b 100%);
+  color: #fff;
+  border: none;
+  border-radius: 32px;
+  padding: 14px 36px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 12px #f8e1e9;
+  transition: background 0.2s;
+}
+.cta-btn:hover {
+  background: linear-gradient(90deg, #e07a9b 0%, #ffb6c1 100%);
+}
+
+.hero-image {
+  min-width: 260px;
+  min-height: 340px;
+  /* background: url('/public/phone-mockup.png') no-repeat center/contain; */
+  background: linear-gradient(135deg, #ffe3ee 60%, #f8e1e9 100%);
+  margin-left: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Optionally, you can add an <img> in the React component for the phone mockup if you add the image to /public and reference it via <img src="/phone-mockup.png" /> */
+
+.features-section {
+  background: #fff;
+  margin: 48px 0 0 0;
+  padding: 36px 5% 24px 5%;
+  border-radius: 32px;
+  box-shadow: 0 2px 16px #f8e1e9;
+}
+
+.features-title {
+  text-align: center;
+  font-size: 1.7rem;
+  color: #d14d72;
+  margin-bottom: 32px;
+}
+.features-title span {
+  color: #e07a9b;
+}
+
+.features-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+}
+
+.feature-item {
+  background: #fff6fa;
+  border-radius: 24px;
+  box-shadow: 0 1px 8px #f8e1e9;
+  padding: 24px 18px;
+  width: 200px;
+  text-align: center;
+}
+
+.feature-item .icon {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  color: #e07a9b;
+}
+
+.cta-section {
+  background: #fff0f6;
+  margin: 48px 0 0 0;
+  padding: 36px 5% 24px 5%;
+  border-radius: 32px;
+  text-align: center;
+  box-shadow: 0 2px 16px #f8e1e9;
+}
+.cta-section h3 {
+  font-size: 1.4rem;
+  color: #d14d72;
+  margin-bottom: 18px;
+}
+.cta-section span {
+  color: #e07a9b;
+}
+
+.footer {
+  background: #fff6fa;
+  padding: 32px 5% 24px 5%;
+  border-radius: 32px 32px 0 0;
+  margin-top: 48px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 1rem;
+}
+.footer-brand {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #d14d72;
+  margin-bottom: 12px;
+}
+.footer-brand span {
+  color: #e07a9b;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-left: 8px;
+}
+.footer-links a {
+  color: #e07a9b;
+  margin-right: 18px;
+  text-decoration: none;
+  font-weight: 500;
+}
+.footer-links a:hover {
+  text-decoration: underline;
+}
+.footer-info {
+  color: #6d4c4c;
+  font-size: 0.95rem;
+}
+@media (max-width: 900px) {
+  .hero-section {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 3% 24px 3%;
+  }
+  .hero-image {
+    margin: 32px 0 0 0;
+    min-width: 200px;
+    min-height: 260px;
+  }
+  .features-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 3% 18px 3%;
+  }
+}

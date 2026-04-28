@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import WeddingForm from '../components/WeddingForm';
 import GuestBulkForm from '../components/GuestBulkForm';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 
 const CreateWeddingPage = () => {
   const [wedding, setWedding] = useState(null);
@@ -8,7 +10,7 @@ const CreateWeddingPage = () => {
 
   return (
     <div>
-    
+      <NavBar />
       <WeddingForm onCreated={setWedding} />
       {wedding && (
         <>
@@ -17,6 +19,7 @@ const CreateWeddingPage = () => {
         </>
       )}
       {guests && <p>Guests added!</p>}
+      <Footer />
     </div>
   );
 };
