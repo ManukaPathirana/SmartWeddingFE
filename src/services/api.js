@@ -5,3 +5,11 @@ const api = axios.create({
 });
 
 export default api;
+
+export const signup = async (data) => {
+  return api.post('/api/signup', data);
+};
+
+export const login = async (data) => {
+  return api.post('/api/login', data);
+};

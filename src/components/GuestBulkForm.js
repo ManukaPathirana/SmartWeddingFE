@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { addGuests } from '../services/weddingApi';
 
-
 const GuestBulkForm = ({ onAdded }) => {
-  const [weddingId, setWeddingId] = useState('');
   const [guests, setGuests] = useState([
     { name: '', email: '', phone: '' }
   ]);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
+  const user = JSON.parse(localStorage.getItem('currentUser'));
+  const username = user?.username || '';
 
   const handleGuestChange = (idx, field, value) => {
     setGuests(prev => prev.map((g, i) => i === idx ? { ...g, [field]: value } : g));
@@ -28,12 +28,11 @@ const GuestBulkForm = ({ onAdded }) => {
     setSuccess(null);
     try {
       const payload = {
-        wedding_id: Number(weddingId),
+        username,
         guests: guests.filter(g => g.name && g.email && g.phone)
       };
       const res = await addGuests(payload);
       setSuccess('Guests added!');
-      setWeddingId('');
       setGuests([{ name: '', email: '', phone: '' }]);
       if (onAdded) onAdded(res.data);
     } catch (err) {
@@ -64,12 +63,9 @@ const GuestBulkForm = ({ onAdded }) => {
           color: '#d81b60',
           fontSize: 16
         }}
-        placeholder="Wedding ID"
-        value={weddingId}
-        onChange={e => setWeddingId(e.target.value)}
-        required
-        type="number"
-        min="1"
+        value={username}
+        disabled
+        placeholder="Username"
       />
       {guests.map((guest, idx) => (
         <div key={idx} style={{

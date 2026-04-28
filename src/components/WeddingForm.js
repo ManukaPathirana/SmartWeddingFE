@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { createWedding } from '../services/weddingApi';
 
 const WeddingForm = ({ onCreated }) => {
-  const [title, setTitle] = useState('');
   const [eventDate, setEventDate] = useState('');
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
-  const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem('currentUser'));
+  const username = user?.username || '';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
     setSuccess(null);
     try {
-      const res = await createWedding({ title, event_date: eventDate });
+      const res = await createWedding({ username, event_date: eventDate });
       setSuccess('Wedding created!');
-      setTitle(''); setEventDate('');
+      setEventDate('');
       if (onCreated) onCreated(res.data);
     } catch (err) {
       setError('Failed to create wedding.');
@@ -44,7 +43,7 @@ const WeddingForm = ({ onCreated }) => {
         background: '#fce4ec',
         color: '#d81b60',
         fontSize: 16
-      }} placeholder="Title" value={title} onChange={e => setTitle(e.target.value)} required />
+      }} value={username} disabled placeholder="Username" />
       <input style={{
         padding: 10,
         borderRadius: 8,
